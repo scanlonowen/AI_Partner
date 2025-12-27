@@ -1,0 +1,7 @@
+flask
+flask-socketio
+confluent-kafka
+google-cloud-secret-manager
+google-auth
+simple-websocket
+google-cloud-aiplatform

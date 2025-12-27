@@ -1,0 +1,204 @@
+/* General Body and Layout */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.simulator-container {
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #1c1e21;
+    margin-top: 0;
+}
+
+/* Simulator Grid */
+#simulator-grid {
+    display: grid;
+    /* Grid columns and rows will be set by JS */
+    border: 2px solid #ccc;
+    position: relative; /* For positioning the robot */
+}
+
+.grid-cell {
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+/* Robot Style */
+.robot {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #ffcc00; /* Yellow */
+    border: 3px solid #e6b800;
+    border-radius: 6px;
+    margin: 5px; /* Center it within the 50x50 cell */
+    box-sizing: border-box;
+    z-index: 10;
+    transition: top 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+/* Path Cell Style */
+.path-cell {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 10px rgba(88, 166, 255, 0.5);
+}
+
+/* Goal Cell Style */
+.goal-cell {
+    box-shadow: inset 0 0 0 4px #ffcc00; /* Yellow inner border */
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: inset 0 0 0 4px #ffcc00; }
+    50% { box-shadow: inset 0 0 0 4px #e6b800; }
+}
+
+/* Surface Colors */
+.surface-0 { background-color: #a0a0a0; } /* Concrete */
+.surface-1 { background-color: #6abf69; } /* Grass */
+.surface-2 { background-color: #c0c0c0; } /* Gravel */
+.surface-3 { background-color: #8b5a2b; } /* Mulch */
+.surface-4 { background-color: #9b7653; } /* Dirt */
+.surface-5 { background-color: #f0e68c; } /* Sand */
+
+/* Info Panel & Legend */
+.info-panel {
+    width: 250px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+#surface-report {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.status-box {
+    font-family: "Courier New", Courier, monospace;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #2d333b;
+    color: #cdd9e5;
+    word-wrap: break-word;
+    border: 1px solid #444c56;
+    text-align: center;
+}
+
+.status-box p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #58a6ff; /* Light blue for values */
+}
+
+.status-box-smoothing p {
+    font-size: 0.9em;
+    color: #6bc46d; /* Green for stable status */
+}
+
+/* Pathfinding Selector */
+#pathfinding-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 6px;
+}
+
+#pathfinding-selector label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+#legend-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#legend-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.legend-color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.instructions {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* New Logs Panel */
+.logs-panel {
+    width: 300px; /* A bit wider for logs */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Log Terminal */
+#log-terminal {
+    flex-grow: 1; /* Make the terminal fill the available space */
+    background-color: #2d333b;
+    color: #cdd9e5;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.85em;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-y: auto; /* Make it scrollable */
+    border: 1px solid #444c56;
+}
+
+#log-terminal p {
+    margin: 0 0 5px 0;
+    white-space: pre-wrap; /* Allows text to wrap */
+
+
+/* Log message type colors */
+.log-tx { color: #8cb4ff; } /* Blue for Transmit */
+.log-rx { color: #6bc46d; } /* Green for Receive */
+.log-act { color: #f9a857; } /* Orange for Action */
+
+}

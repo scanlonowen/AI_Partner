@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Simulator Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <div class="simulator-container">
+            <h1>Robot Surface Simulator</h1>
+            <div id="simulator-grid">
+                <!-- The robot will be added here by JavaScript -->
+            </div>
+            <div class="instructions">
+                <p>
+                    <!-- This will be updated by script.js -->
+                </p>
+                <button id="start-button">Start Robot</button>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>Robot Status</h2>
+            <p>Current Surface:</p>
+            <div id="surface-report">
+                <span id="surface-name">N/A</span>
+                (<span id="surface-number">#</span>)
+            </div>
+            <hr>
+            <h3>Machine Learning Surface Prediciton</h3>
+            <div class="status-box" id="prediction-status-box">
+                <p id="robot-mode">Default</p>
+            </div>
+            <h3>Travel Speed</h3>
+            <div class="status-box">
+                <p id="robot-speed">1.00 steps/sec</p>
+            </div>
+            <h3>Speed Control</h3>
+            <div class="status-box status-box-smoothing">
+                <p id="smoothing-status">Stable</p>
+            </div>
+            <h3>Pathfinding</h3>
+            <div id="pathfinding-selector">
+                <label>
+                    <input type="radio" name="path-algo" value="bfs" checked> BFS (Shortest)
+                </label>
+                <label>
+                    <input type="radio" name="path-algo" value="astar"> A* (Fastest)
+                </label>
+            </div>
+
+            <h3>Legend</h3>
+            <ul id="legend-list">
+                <!-- Legend will be populated by JavaScript -->
+            </ul>
+        </div>
+
+        <div class="logs-panel">
+            <h3>Live Logs</h3>
+            <div id="log-terminal">
+                <!-- Log messages will be added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.IO client library -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
