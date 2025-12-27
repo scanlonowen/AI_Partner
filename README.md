@@ -1,7 +1,7 @@
 Robot Terrain Classification Dashboard
 This project is a real-time data pipeline and dashboard for visualizing robot terrain classification data. It simulates a robot walking on different surfaces (Grass, Concrete, Gravel) by streaming force data through Apache Kafka (Confluent) to a web dashboard.
 
-🏗 Architecture
+	🏗 Architecture
 The system is built using a microservices architecture containerized with Docker:
 
 Producer (producer.py): Acts as the robot. It reads historical vibration data from a CSV and streams it to a Kafka topic (my-topic) when triggered via the web UI. It hosts the Flask Web Server on Port 5000.
@@ -10,14 +10,14 @@ Consumer (consumer.py): Acts as the AI/Processing unit. It listens for "robot ac
 
 Message Broker (Kafka & Zookeeper): Handles the asynchronous communication between the robot (Producer) and the dashboard (Consumer).
 
-📊 Data Source Citation
+	📊 Data Source Citation
 This project utilizes the QCAT Legged Robot Terrain Classification Dataset.
 
 Ahmadi, Reza; Nygaard, Tønnes; Kottege, Navinda; Howard, David; & Hudson, Nicolas (2020): QCAT legged robot terrain classification dataset. v2. CSIRO. Data Collection.
 
 DOI: https://doi.org/10.25919/5f88b9c730442
 
-🚀 Getting Started
+	🚀 Getting Started
 Prerequisites
 Docker Desktop (or Docker Engine + Compose) installed.
 
@@ -40,7 +40,7 @@ Launch the System: Run the entire stack with one command:
 Access the Dashboard: Open your browser and navigate to:
 http://localhost:5000
 
-📂 Project Structure
+	📂 Project Structure
 AI_Partner/
 ├── Web Dashboard/          # HTML/CSS/JS frontend files
 ├── producer.py             # Flask Server + Kafka Producer
@@ -51,7 +51,7 @@ AI_Partner/
 ├── gcp-key.json            # (DO NOT COMMIT) Google Cloud credentials
 └── AI_Partner_...csv       # QCAT Dataset Source File
 
-🛠 Tech Stack
+	🛠 Tech Stack
 Language: Python 3.9
 
 Web Framework: Flask & Flask-SocketIO
@@ -62,5 +62,5 @@ Containerization: Docker & Docker Compose
 
 Cloud Services: Google Cloud Secret Manager\Google Cloud
 
-📝 License
+	📝 License
 This project is for educational/hackathon purposes. The dataset is licensed by CSIRO as cited above.
